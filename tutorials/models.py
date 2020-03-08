@@ -25,7 +25,9 @@ class Tutorial(models.Model):
 class Step(models.Model):
     """The most granular unit of a tutorial"""
     # Relations
-    tutorial = models.ForeignKey(Tutorial, on_delete=models.CASCADE)
+    tutorial = models.ForeignKey(
+        Tutorial, on_delete=models.CASCADE, related_name="steps"
+    )
 
     # Attributes - Mandatory
     title = models.CharField(max_length=200)
